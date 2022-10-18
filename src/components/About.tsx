@@ -33,8 +33,8 @@ export default function About({}: Props) {
                             <p className='text-white text-sm md:text-base xl:text-xl tracking-wider font-light w-full m-auto p-8 rounded-md shadow-lg'>
                                 <h1 className='text-lg md:text-xl xl:text-3xl tracking-wider font-bold border-b border-spacing-1 pb-5 mb-0'>Eu!!</h1>
                                 <br/>
-                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                            </p>
+                                Olá,<br/>
+                                Sou o David Xavier um rapaz de 20 anos. Neste momento estou a realizar o meu curso de Engenharia Informática. Já realizei algumas formações profissionais, devido a isso ganhei a experiência de programar para diversas plataformas, como aplicações Desktop, aplicativos Mobile e aplicativos Web. Tenho uma enorme paixão por o que faço e tenho cada vez mais motivação para melhor as minhas hard skills, e tornar-me cada vez melhor no meu trabalho.                            </p>
                         </motion.div>
 
 

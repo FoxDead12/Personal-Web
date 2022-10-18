@@ -82,7 +82,7 @@ function Formation (props: IFormation) {
         className='relative w-full xl:max-w-[450px] flex flex-col bg-gradient-to-t from-blue-900 to-blue-800 mt-7 lg:mx-2 py-8 px-8 rounded-md shadow-md'>
 
             <div className='absolute m-auto -left-10 lg:left-0 lg:right-0 top-4 lg:-top-11 w-[15px] h-[15px] bg-white rounded-full border-4 border-blue-900'></div>
-            <div className='absolute m-auto rotate-90 -left-8 lg:left-0 lg:right-0 -top-10 lg:-top-20 text-center text-blue-900 font-bold'>{props.dataInicio.getFullYear()}</div>
+            <div className='absolute m-auto rotate-90 -left-[3.1rem] -left lg:left-0 lg:right-0 -top-10 lg:-top-20 text-center text-blue-900 font-bold'>{props.dataInicio.getFullYear()}</div>
             
             <div className='absolute m-auto top-4 lg:-top-2 -left-2 lg:left-0 lg:right-0 w-4 h-4 rotate-45 lg:rotate-45 bg-blue-800 '></div>
 
@@ -91,13 +91,13 @@ function Formation (props: IFormation) {
             </div>
 
             <div className='flex flex-col items-start mt-12 mb-8'>
-                <h1 className='text-white text-xl tracking-wider'>{props.curso}</h1>
-                <h3 className='text-white text-base my-3'>{props.escola}</h3>
+                <h1 className='text-white text-base md:text-xl tracking-wider'>{props.curso}</h1>
+                <h3 className='text-white text-sm md:text-base my-3'>{props.escola}</h3>
                 {
                     props.dataFim ?
-                    <p  className='text-gray-400 text-base italic capitalize'>{new Intl.DateTimeFormat('pt-PT', {month: 'long'}).format(props.dataInicio) + "-" + props.dataInicio.getFullYear()} / {new Intl.DateTimeFormat('pt-PT', {month: 'long'}).format(props.dataFim) + "-" + props?.dataFim.getFullYear()}</p>
+                    <p  className='text-gray-400 text-sm md:text-base italic capitalize'>{new Intl.DateTimeFormat('pt-PT', {month: 'long'}).format(props.dataInicio) + "-" + props.dataInicio.getFullYear()} / {new Intl.DateTimeFormat('pt-PT', {month: 'long'}).format(props.dataFim) + "-" + props?.dataFim.getFullYear()}</p>
                     :
-                    <p  className='text-gray-400 text-base italic capitalize'>{new Intl.DateTimeFormat('pt-PT', {month: 'long'}).format(props.dataInicio) + "-" + props.dataInicio.getFullYear()} / <span className='font-bold'>atualmente</span></p>
+                    <p  className='text-gray-400 text-sm md:text-base italic capitalize'>{new Intl.DateTimeFormat('pt-PT', {month: 'long'}).format(props.dataInicio) + "-" + props.dataInicio.getFullYear()} / <span className='font-bold'>atualmente</span></p>
 
                 }
             </div>
@@ -108,7 +108,7 @@ function Formation (props: IFormation) {
                     props.skills.map((ele) => {
 
                         return (
-                            <li className='text-white text-base py-1'>{ele}</li>
+                            <li className='text-white text-sm md:text-base py-1'>{ele}</li>
                         )
                     })
                 }

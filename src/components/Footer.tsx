@@ -13,7 +13,7 @@ export default function Footer({}: Props) {
             
             <div className='relative w-[90%] m-auto 3xl:w-[70%] flex flex-col justify-between p-4 z-0'>
                 <h1 className='text-white text-lg italic'>{"<"}Contactos{">"}</h1>
-                <div className='relative w-[90%] m-auto 3xl:w-[90%] flex flex-col items-center justify-center my-24 pt-4'>
+                <div className='relative w-[100%] m-auto 3xl:w-[90%] flex flex-col items-center justify-center my-24 pt-4'>
 
 
                     <motion.div
@@ -136,14 +136,14 @@ const ContactForm = () => {
                     error != "" ?
                     <h2 className='text-red-600 font-bold text-lg border-2 border-red-600 mb-4 rounded-md'>{error}</h2>: ''
                 }                
-                <h1 className='text-2xl mb-4 font-bold uppercase text-gray-900'>Envie-me uma mensagem!!</h1>
+                <h1 className='text-lg md:text-2xl mb-4 font-bold uppercase text-gray-900'>Envie-me uma mensagem!!</h1>
 
                 <input type="text" name='from_name' placeholder='Name' className='my-4 p-4 rounded-md shadow-md outline-gray-900'/>
                 <input type="email" name='from_email' placeholder='Email' className='my-4 p-4 rounded-md shadow-md outline-gray-900'/>
 
                 <textarea placeholder='Mensagem' name='message' rows={5} cols={40} className='my-4 p-4 rounded-md shadow-md outline-gray-900 resize-none'></textarea>
 
-                <button type='submit' className='bg-gray-900 p-4 text-white uppercase font-bold rounded-md shadow-md'>Enviar</button>
+                <button type='submit' className='bg-gray-900 p-4 text-base text-white uppercase font-bold rounded-md shadow-md'>Enviar</button>
             </motion.form>
         </>
     )

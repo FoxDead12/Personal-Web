@@ -102,13 +102,13 @@ const Experience = (props: IExperience) => {
             </div>
             
             <div className='flex flex-col items-start mt-8 mb-4'>
-                <h1 className='text-white text-xl tracking-wider'>{props.cargo}</h1>
-                <h3 className='text-white text-base my-3'>{props.empresa}, {props.localizacao}</h3>
+                <h1 className='text-white text-base md:text-xl tracking-wider'>{props.cargo}</h1>
+                <h3 className='text-white text-sm md:text-base my-3'>{props.empresa}, {props.localizacao}</h3>
                 {
                     props.dataFim ?
-                    <p  className='text-gray-300 text-base italic capitalize'>{new Intl.DateTimeFormat('pt-PT', {month: 'long'}).format(props.dataInicio) + "-" + props.dataInicio.getFullYear()} / {new Intl.DateTimeFormat('pt-PT', {month: 'long'}).format(props.dataFim) + "-" + props?.dataFim.getFullYear()}</p>
+                    <p  className='text-gray-300 text-sm md:text-base italic capitalize'>{new Intl.DateTimeFormat('pt-PT', {month: 'long'}).format(props.dataInicio) + "-" + props.dataInicio.getFullYear()} / {new Intl.DateTimeFormat('pt-PT', {month: 'long'}).format(props.dataFim) + "-" + props?.dataFim.getFullYear()}</p>
                     :
-                    <p  className='text-gray-300 text-base italic capitalize'>{new Intl.DateTimeFormat('pt-PT', {month: 'long'}).format(props.dataInicio) + "-" + props.dataInicio.getFullYear()} / <span className='font-bold'>atualmente</span></p>
+                    <p  className='text-gray-300 text-sm md:text-base italic capitalize'>{new Intl.DateTimeFormat('pt-PT', {month: 'long'}).format(props.dataInicio) + "-" + props.dataInicio.getFullYear()} / <span className='font-bold'>atualmente</span></p>
 
                 }
             </div>
