@@ -74,7 +74,6 @@ const Experience = (props: IExperience) => {
         
         initial={"initial"}
         whileInView={"animate"}
-        viewport={{margin: '-150px'}}
         variants={props.left === true? left: right}
 
         className={`relative flex-none w-[300px] md:w-[350px] max-w-[350px] bg-blue-800 opacity-100 md:opacity-70 hover:opacity-100 my-4 md:m-0 md:mx-4 p-4 rounded-md shadow-md  ${props.left === true ? 'md:mr-[450px]' : 'md:ml-[450px] md:mr-4'}`}>
