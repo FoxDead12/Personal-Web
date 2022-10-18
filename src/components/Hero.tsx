@@ -28,7 +28,7 @@ export default function Hero({}: Props) {
     })
     
     return (
-        <main className='relative h-[100vh] z-0'>
+        <main className='mt-16 md:mt-0 relative h-[100vh] z-0'>
             <div className='w-[80%] h-full m-auto 3xl:w-[60%] flex flex-col lg:flex-row justify-evenly md:justify-around items-center '>
                 
                 <div className=''>
