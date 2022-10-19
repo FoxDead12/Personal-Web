@@ -199,11 +199,11 @@ const PoliticaPrivacidade = (props: IPoliticaPrivacidade) => {
     }
 
     return (
-        <div className='fixed block w-screen h-screen left-0 top-0 bg-gray-700 bg-opacity-40 z-50'>
+        <div className='fixed block  w-screen h-screen left-0 top-0 bg-gray-700 bg-opacity-40 z-50'>
             
-            <div className='flex items-start md:items-center justify-center w-full h-full overflow-y-scroll'>
+            <div className='relative flex items-start md:items-start justify-center w-full h-full overflow-y-scroll'>
 
-                <div className='z-10 relative block w-full max-w-[500px] bg-gray-100 p-4 rounded-md shadow-md shadow-gray-500 left-0 top-0 bottom-0 right-0 m-4 '>
+                <div className='z-10 relative block w-full max-w-[500px] bg-gray-100 p-4 rounded-md shadow-md shadow-gray-500 left-0 top-0 bottom-0 right-0 m-4 mt-4 '>
                     <h1 className='text-lg font-bold text-blue-900 border-b-[1.5px] border-gray-500 pb-4 mb-4 flex items-center justify-between'>
                         POLÍTICA DE PRIVACIDADE
                         <div onClick={() => props.onClose(false)} className="cursor-pointer">
