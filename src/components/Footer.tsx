@@ -166,7 +166,7 @@ const ContactForm = (props: IContactForm) => {
                 <textarea placeholder='Mensagem' name='message' rows={5} cols={40} className='my-4 p-4 rounded-md shadow-md outline-gray-900 resize-none'></textarea>
 
                 <div className='flex items-center mb-4'>
-                    <label className='text-gray-900 font-normal text-sm'>Eu li e concordo com o contrato de <span onClick={() => props.openPolitica(true)} className='text-blue-900 cursor-pointer hover:border-b-[1px] border-blue-900'>Política de Privacidade</span></label>
+                    <label className='text-gray-900 font-normal text-sm'>Ao efetuar o envio assumo que li e concordo com a <span onClick={() => props.openPolitica(true)} className='text-blue-900 cursor-pointer hover:border-b-[1px] border-blue-900'>Política de Privacidade</span></label>
                     <input defaultChecked={false} type="checkbox" className='ml-2' onChange={(e) => setRGPD(!rgpd)} />
                 </div>
 
@@ -215,11 +215,11 @@ const PoliticaPrivacidade = (props: IPoliticaPrivacidade) => {
                     <p className='text-gray-900 text-sm md:text-base font-light font-sans'>
                         Esta declaração de garantia de privacidade de dados aplica-se especifica e exclusivamente ao serviço do site 'davidxavier.website'.<br/><br/>
 
-                        Quando pedimos o seu nome, email, entre outros, temos como objetivo manter um relacionamento mais próximo com os nossos utilizadores. Com o seu registo, passamos a tratá-lo pelo seu nome próprio, ficamos mais próximos de si e podemos responder às suas necessidades ou pedidos com mais eficácia.
+                        Quando pedimos o seu nome, email, entre outros, temos como objetivo manter um relacionamento mais próximo com os nossos utilizadores. Apos o seu consentimento, passamos a ter possibilidade de o contactar de forma a responder ás suas necessidades e/ou pedido efetuado após usar os nossos serviços.
                         <br/><br/>
                         'davidxavier.website' respeita a privacidade de todos os seus utilizadores e garante que as informações fornecidas pelos utilizadores não serão utilizadas em nenhuma lista com fins promocionais, via correio eletrónico, nem serão divulgados a qualquer outra organização ou empresa. 'davidxavier.website' compromete-se ao uso de uma tecnologia suficientemente eficaz para que a sua experiência online seja de dia para dia mais segura e os seus relacionamentos na Web cada vez mais reforçados, recolhendo e tratando os dados de forma segura, impedindo a sua perda ou manipulação.
                         <br/><br/>
-                        Os dados recolhidos pelo 'davidxavier.website' serão utilizados de acordo com o cumprimento da legislação aplicável sobre proteção de dados pessoais – Lei 67/98 de 26 de outubro, Lei de Proteção de Dados – de forma a que fique assegurada a confidencialidade e segurança dos dados pessoais fornecidos. Os mesmos destinam-se a ser usados para comunicação com os utilizadores, resposta a pedidos de informação.
+                        Os dados recolhidos pelo 'davidxavier.website' serão utilizados de acordo com o cumprimento da legislação aplicável sobre proteção de dados pessoais – Lei 58/2019 de 8 de agosto, Lei de Proteção de Dados – de forma a que fique assegurada a confidencialidade e segurança dos dados pessoais fornecidos. Os mesmos destinam-se a ser usados para comunicação com os utilizadores, resposta a pedidos de informação.
                         <br/><br/>
                         Sobre qualquer questão que tenha relativa a este compromisso, não hesite em contactar-nos.
                     </p>
