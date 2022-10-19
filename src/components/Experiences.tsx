@@ -93,7 +93,7 @@ const Experience = (props: IExperience) => {
                 <h5 className='rotate-90 '>{props.dataInicio.getFullYear()}</h5>
             </div>
 
-            <div className={`absolute visible md:invisible m-auto flex items-center -right-10 -top-20 bottom-0  font-bold text-blue-900 rotate-0 `}>
+            <div className={`absolute visible md:invisible m-auto flex items-center -right-[2.6rem] -top-20 bottom-0  font-bold text-blue-900 rotate-0 `}>
                 <h5 className='rotate-90 '>{props.dataInicio.getFullYear()}</h5>
             </div>
 

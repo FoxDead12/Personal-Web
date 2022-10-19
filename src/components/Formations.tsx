@@ -12,7 +12,7 @@ export default function Formations({}: Props) {
             <div className='relative w-[90%] m-auto 3xl:w-[70%] flex flex-col justify-between p-4 z-0'>
                 <h1 className='text-blue-900 text-lg italic'>{"<"}Formações{">"}</h1>
 
-                <div className='relative w-[90%] m-auto 3xl:w-[90%] flex flex-col lg:flex-row items-start justify-between my-24 pt-4'>
+                <div className='relative w-[90%] m-auto 3xl:w-[90%] flex flex-col lg:flex-row items-start justify-between my-24 pt-10 md:pt-4'>
                     
                     <div className='absolute top-0 -left-10 w-[15px] h-full lg:left-0 lg:w-full lg:h-[15px] bg-red-400 rounded-full'></div>
 
