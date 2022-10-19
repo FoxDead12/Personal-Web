@@ -10,7 +10,7 @@ export default function Experiences (props: Props) {
 
             <div className='absolute w-full h-full bg-blue-900 experience-container'></div>
             <div className='relative w-[90%] m-auto 3xl:w-[70%] flex flex-col justify-between p-4 z-10'>
-                <h1 className='text-white text-lg italic'>{"<"}Experiencias{">"}</h1>
+                <h1 className='text-white text-lg italic'>{"<"}Experiências{">"}</h1>
                 <div className='relative w-[90%] m-auto 3xl:w-[90%] flex flex-col items-center justify-center my-24'>
                     
                     <div className='relative w-full flex flex-col items-center justify-center py-4'>
@@ -26,7 +26,7 @@ export default function Experiences (props: Props) {
                     </div>
 
                 </div>
-                <h1 className='text-blue-900 text-lg italic'>{"</"}Experiencias{">"}</h1>
+                <h1 className='text-blue-900 text-lg italic'>{"</"}Experiências{">"}</h1>
             </div>
 
         </section>
