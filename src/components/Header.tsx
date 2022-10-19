@@ -49,7 +49,7 @@ export default function Header({}: Props) {
                 <ul className='flex justify-between'>
                     <li className='text-blue-900 text-sm md:text-base mx-2 hover:text-blue-600 cursor-pointer active:scale-110' onClick={() => onClickLink("about")}>Sobre Min</li>
                     <li className='text-blue-900 text-sm md:text-base mx-2 hover:text-blue-600 cursor-pointer active:scale-110' onClick={() => onClickLink("formation")}>Formações</li>
-                    <li className='text-blue-900 text-sm md:text-base ml-2 hover:text-blue-600 cursor-pointer active:scale-110' onClick={() => onClickLink("experiences")}>Experiencias</li>
+                    <li className='text-blue-900 text-sm md:text-base ml-2 hover:text-blue-600 cursor-pointer active:scale-110' onClick={() => onClickLink("experiences")}>Experiências</li>
                     <li className='text-blue-900 text-sm md:text-base ml-2 hover:text-blue-600 cursor-pointer active:scale-110' onClick={() => onClickLink("footer")}>Contacte-Me</li>
                 </ul>
             </div>
