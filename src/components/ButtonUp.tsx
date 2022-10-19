@@ -58,7 +58,7 @@ export default function ButtonUp({}: Props) {
         }}
 
         onClick={onClick}
-        className='fixed bottom-10 right-10 bg-blue-600 z-50 p-2 text-white rounded-lg drop-shadow-lg cursor-pointer w-[50px] h-[50px] flex items-center justify-center'>
+        className='fixed bottom-10 right-10 bg-blue-600 z-40 p-2 text-white rounded-lg drop-shadow-lg cursor-pointer w-[50px] h-[50px] flex items-center justify-center'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
             </svg>

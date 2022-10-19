@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 function App() {
 
   return (
-    <div className="relative flex flex-col bg-gray-50 overflow-x-hidden">
+    <div className="relative flex flex-col bg-gray-50 overflow-x-hidden z-0">
       <Header />
       <Hero />
       <About />
@@ -18,8 +18,8 @@ function App() {
       <Experiences />
       <Footer />
 
-      
       <ButtonUp />
+      
     </div>
   );
 }

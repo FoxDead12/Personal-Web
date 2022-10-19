@@ -73,7 +73,7 @@ function Formation (props: IFormation) {
             }}
 
             transition={{
-                delay: 0.5,
+                delay: 0,
                 duration: 1
             }}
 
