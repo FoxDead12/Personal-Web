@@ -3,10 +3,14 @@ import React, { useEffect, useRef } from 'react'
 import Lottie from "lottie-web"
 import ScrollAnim from "../assets/lotties/scroll.json"
 import { useScroll } from "framer-motion"
+import { ILanguage } from '../languages/ILanguage'
 
-type Props = {}
+type Props = {
 
-export default function Hero({}: Props) {
+    language: ILanguage
+}
+
+export default function Hero({language}: Props) {
     
     const { scrollYProgress } = useScroll()
     const transform = useTransform(scrollYProgress, [0, 1], [0, 1000]);
@@ -32,9 +36,9 @@ export default function Hero({}: Props) {
             <div className='w-[80%] h-full m-auto 3xl:w-[60%] flex flex-col lg:flex-row justify-evenly md:justify-around items-center '>
                 
                 <div className=''>
-                    <motion.h1 initial={{opacity: 0, y: -100}} animate={{opacity: 1, y: 0, transition: {type: "spring", stiffness: 200}}} className='text-2xl xl:text-4xl font-light mb-2 text-gray-800'>Olá, sou o</motion.h1>
+                    <motion.h1 initial={{opacity: 0, y: -100}} animate={{opacity: 1, y: 0, transition: {type: "spring", stiffness: 200}}} className='text-2xl xl:text-4xl font-light mb-2 text-gray-800'>{language?.hero?.upText}</motion.h1>
                     <motion.h1 initial={{x: -500}} animate={{x: 0}} className='text-4xl xl:text-7xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-700 uppercase '>David Xavier</motion.h1>
-                    <motion.h2 initial={{opacity: 0, scale: 0}} animate={{scale: 1, opacity: 1, transition: {duration: 3}}} className='text-lg xl:text-xl text-gray-400 text-right pt-4 uppercase tracking-widest origin-center'>Junior Software Developer</motion.h2>
+                    <motion.h2 initial={{opacity: 0, scale: 0}} animate={{scale: 1, opacity: 1, transition: {duration: 3}}} className='text-lg xl:text-xl text-gray-400 text-right pt-4 uppercase tracking-widest origin-center'>{language?.hero?.bottomText}</motion.h2>
                 </div> 
 
                 <motion.div initial={{y: 0}} animate={{y: [10, -10, 10]}} style={{translateY: transform}} transition={{repeat: Infinity, ease: 'linear', duration: 3}} className='relative z-0 '>

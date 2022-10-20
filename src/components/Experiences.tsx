@@ -1,32 +1,159 @@
 import { motion, Variants } from 'framer-motion';
 import React from 'react'
+import { ILanguage } from '../languages/ILanguage';
 
-type Props = {}
+type Props = {
+    language: ILanguage
+}
 
-export default function Experiences (props: Props) {
+const experiencesArrayPT = [
+
+    {
+        left: true,
+        img: 'klab-logo.png',
+        cargo : 'Funcionário de TI',
+        empresa: 'Kreator Lab',
+        localizacao: 'Eslovênia',
+        actual: "Atualmente",
+        dataInicio: new Date("May 1, 2019"),
+        dataFim: new Date("July 1, 2019"),
+    },
+    {
+        left: false,
+        img: 'nos_opengraph.png',
+        cargo : 'RPA Developer',
+        empresa: 'NOS',
+        localizacao: 'Porto',
+        actual: "Atualmente",
+        dataInicio: new Date("January 1, 2020"),
+        dataFim: new Date("March 1, 2020"),
+    },
+    {
+        left: true,
+        img: 'continente.jpeg',
+        cargo : 'Gestor de Caixa',
+        empresa: 'Continente',
+        localizacao: 'Porto',
+        actual: "Atualmente",
+        dataInicio: new Date("October 1, 2020"),
+        dataFim: new Date("October 1, 2021"),
+    },
+    {
+        left: false,
+        img: 'arkis.png',
+        cargo : 'Desenvolvedor de Aplicativos Web',
+        empresa: 'Arkis',
+        localizacao: 'Porto',
+        actual: "Atualmente",
+        dataInicio: new Date("October 1, 2021"),
+        dataFim: new Date("January 1, 2022")
+    },
+    {
+        left: true,
+        img: 'mozantech.jpeg',
+        cargo : 'Node Js Back-End Developer',
+        empresa: 'Mozantech',
+        localizacao: 'Porto',
+        actual: "Atualmente",
+        dataInicio: new Date("March 1, 2022"),
+        dataFim: new Date("July 1, 2022")
+    }
+];
+
+const experiencesArrayEN = [
+
+    {
+        left: true,
+        img: 'klab-logo.png',
+        cargo : 'IT Employee',
+        empresa: 'Kreator Lab',
+        localizacao: 'Slovenia',
+        actual: "Current",
+        dataInicio: new Date("May 1, 2019"),
+        dataFim: new Date("July 1, 2019"),
+    },
+    {
+        left: false,
+        img: 'nos_opengraph.png',
+        cargo : 'RPA Developer',
+        empresa: 'NOS',
+        localizacao: 'Porto',
+        actual: "Current",
+        dataInicio: new Date("January 1, 2020"),
+        dataFim: new Date("March 1, 2020"),
+    },
+    {
+        left: true,
+        img: 'continente.jpeg',
+        cargo : 'Cash Manager',
+        empresa: 'Continente',
+        localizacao: 'Porto',
+        actual: "Current",
+        dataInicio: new Date("October 1, 2020"),
+        dataFim: new Date("October 1, 2021"),
+    },
+    {
+        left: false,
+        img: 'arkis.png',
+        cargo : 'Web Application Developer',
+        empresa: 'Arkis',
+        localizacao: 'Porto',
+        actual: "Current",
+        dataInicio: new Date("October 1, 2021"),
+        dataFim: new Date("January 1, 2022")
+    },
+    {
+        left: true,
+        img: 'mozantech.jpeg',
+        cargo : 'Node Js Back-End Developer',
+        empresa: 'Mozantech',
+        localizacao: 'Porto',
+        actual: "Current",
+        dataInicio: new Date("March 1, 2022"),
+        dataFim: new Date("July 1, 2022")
+    }
+];
+
+export default function Experiences ({language}: Props) {
     
+    const LoadExperiences = () => {
+
+        if(language?.code === "pt-PT") {
+
+            return experiencesArrayPT.map((el, n) => {
+
+                return (
+                    <Experience code={language.code} key={n} actualText={el.actual} left={el?.left} img={el?.img} cargo={el?.cargo} empresa={el?.empresa} localizacao={el?.localizacao} dataInicio={el?.dataInicio} dataFim={el?.dataFim || undefined} />
+                )
+            })
+        }
+        else {
+
+            return experiencesArrayEN.map((el, n) => {
+
+                return (
+                    <Experience code={language.code} key={n} actualText={el.actual} left={el?.left} img={el?.img} cargo={el?.cargo} empresa={el?.empresa} localizacao={el?.localizacao} dataInicio={el?.dataInicio} dataFim={el?.dataFim || undefined} />
+                )
+            })
+        }
+    }
+
     return (
         <section id='experiences' className='relative z-10'>
 
             <div className='absolute w-full h-full bg-blue-900 experience-container'></div>
             <div className='relative w-[90%] m-auto 3xl:w-[70%] flex flex-col justify-between p-4 z-10'>
-                <h1 className='text-white text-lg italic'>{"<"}Experiências{">"}</h1>
+                <h1 className='text-white text-lg italic'>{"<"}{language?.experiences?.section}{">"}</h1>
                 <div className='relative w-[90%] m-auto 3xl:w-[90%] flex flex-col items-center justify-center my-24'>
                     
                     <div className='relative w-full flex flex-col items-center justify-center py-4'>
 
                         <div className='absolute -right-8 md:right-auto  h-full w-4 bg-red-400 rounded-full'></div>
-                        
-                        <Experience left={true} img={"klab-logo.png"} cargo={"Funcionário de TI"} empresa={"Kreator Lab"} localizacao={"Eslovênia"} dataInicio={new Date("May 1, 2019")} dataFim={new Date("July 1, 2019")} />
-                        <Experience left={false} img={"nos_opengraph.png"} cargo={"RPA Developer"} empresa={"NOS"} localizacao={"Porto"} dataInicio={new Date("January 1, 2020")} dataFim={new Date("March 1, 2020")} />
-                        <Experience left={true} img={"continente.jpeg"} cargo={"Gestor de Caixa"} empresa={"Continente"} localizacao={"Porto"} dataInicio={new Date("October 1, 2020")} dataFim={new Date("October 1, 2021")} />
-                        <Experience left={false} img={"arkis.png"} cargo={"Desenvolvedor de Aplicativos Web"} empresa={"Arkis"} localizacao={"Porto"} dataInicio={new Date("October 1, 2021")} dataFim={new Date("January 1, 2022")} />
-                        <Experience left={true} img={"mozantech.jpeg"} cargo={"Node Js Back-End Developer"} empresa={"Mozantech"} localizacao={"Porto"} dataInicio={new Date("March 1, 2022")} dataFim={new Date("July 1, 2022")} />
-
+                        {LoadExperiences()}
                     </div>
 
                 </div>
-                <h1 className='text-blue-900 text-lg italic'>{"</"}Experiências{">"}</h1>
+                <h1 className='text-blue-900 text-lg italic'>{"</"}{language?.experiences?.section}{">"}</h1>
             </div>
 
         </section>
@@ -35,6 +162,7 @@ export default function Experiences (props: Props) {
 
 interface IExperience {
 
+    code: string;
     left: boolean;
     img: string;
     cargo: string;
@@ -42,6 +170,7 @@ interface IExperience {
     localizacao: string;
     dataInicio: Date;
     dataFim: Date;
+    actualText: string;
 }
 
 const Experience = (props: IExperience) => {
@@ -106,9 +235,9 @@ const Experience = (props: IExperience) => {
                 <h3 className='text-white text-sm md:text-base my-3'>{props.empresa}, {props.localizacao}</h3>
                 {
                     props.dataFim ?
-                    <p  className='text-gray-300 text-sm md:text-base italic capitalize'>{new Intl.DateTimeFormat('pt-PT', {month: 'long'}).format(props.dataInicio) + "-" + props.dataInicio.getFullYear()} / {new Intl.DateTimeFormat('pt-PT', {month: 'long'}).format(props.dataFim) + "-" + props?.dataFim.getFullYear()}</p>
+                    <p  className='text-gray-300 text-sm md:text-base italic capitalize'>{new Intl.DateTimeFormat(props.code, {month: 'long'}).format(props.dataInicio) + "-" + props.dataInicio.getFullYear()} / {new Intl.DateTimeFormat(props.code, {month: 'long'}).format(props.dataFim) + "-" + props?.dataFim.getFullYear()}</p>
                     :
-                    <p  className='text-gray-300 text-sm md:text-base italic capitalize'>{new Intl.DateTimeFormat('pt-PT', {month: 'long'}).format(props.dataInicio) + "-" + props.dataInicio.getFullYear()} / <span className='font-bold'>atualmente</span></p>
+                    <p  className='text-gray-300 text-sm md:text-base italic capitalize'>{new Intl.DateTimeFormat(props.code, {month: 'long'}).format(props.dataInicio) + "-" + props.dataInicio.getFullYear()} / <span className='font-bold'>{props?.actualText}</span></p>
 
                 }
             </div>

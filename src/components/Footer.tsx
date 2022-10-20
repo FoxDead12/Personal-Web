@@ -2,10 +2,13 @@ import React, { FormEvent, useEffect, useState } from 'react'
 import { SocialIcon } from 'react-social-icons'
 import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
+import { ILanguage } from '../languages/ILanguage';
 
-type Props = {}
+type Props = {
+    language: ILanguage
+}
 
-export default function Footer({}: Props) {
+export default function Footer({language}: Props) {
     
     const [politica, setPolitica] = useState(false);
 
@@ -18,14 +21,14 @@ export default function Footer({}: Props) {
         <>
             {
                 politica === true ?
-                <PoliticaPrivacidade onClose={changePolitica}/>
+                <PoliticaPrivacidade language={language} onClose={changePolitica}/>
                 : ''
 
             }
             <footer id='footer' className='relative bg-gray-900 z-10'>
                 
                 <div className='relative w-[90%] m-auto 3xl:w-[70%] flex flex-col justify-between p-4 z-0'>
-                    <h1 className='text-white text-lg italic'>{"<"}Contactos{">"}</h1>
+                    <h1 className='text-white text-lg italic'>{"<"}{language?.footer?.section}{">"}</h1>
                     <div className='relative w-[100%] m-auto 3xl:w-[90%] flex flex-col items-center justify-center my-24 pt-4'>
 
 
@@ -36,7 +39,7 @@ export default function Footer({}: Props) {
                         viewport={{once: true}}
                         className='w-full max-w-[600px] flex flex-col md:flex-row items-start md:items-center justify-between'>
                             <div className='flex flex-col justify-center mx-4 md:m-0 md:mb-4'>
-                                <h5 className='text-white italic text-sm'>Meu Email:</h5>
+                                <h5 className='text-white italic text-sm'>{language?.footer?.myEmail}</h5>
                                 <img src="/img/email.png" alt="" className='w-[300px]' />  
                             </div>
 
@@ -73,11 +76,11 @@ export default function Footer({}: Props) {
                             </ul>
                         </motion.div>
                     
-                        <ContactForm openPolitica={changePolitica} />
+                        <ContactForm language={language} openPolitica={changePolitica} />
 
 
                     </div>
-                    <h1 className='text-white text-lg italic'>{"</"}Contactos{">"}</h1>
+                    <h1 className='text-white text-lg italic'>{"</"}{language?.footer?.section}{">"}</h1>
                     <h5 className='absolute m-auto bottom-2 w-full text-center text-gray-400 italic text-sm'>Made By @Me</h5>
 
                 </div>
@@ -90,6 +93,7 @@ export default function Footer({}: Props) {
 
 interface IContactForm {
 
+    language: ILanguage,
     openPolitica: (value: boolean) => void;
 }
 
@@ -117,13 +121,13 @@ const ContactForm = (props: IContactForm) => {
         emailjs.sendForm('service_8kjrn8i', 'template_vx7aomc', e.target as any, '2B4WCfsi8-krgrj-1')
         .then((result: any) => {
             
-            setSucess("Email foi enviado com sucesso 😋!")
+            setSucess(props?.language?.footer?.form?.successMessage)
             setFetching(false);
             target.reset();
 
         }, (error: any) => {
 
-            setError("Tente novamente, ocorreu algum erro 😓!")
+            setError(props?.language?.footer?.form?.errorMessage)
             setFetching(false);
         });
 
@@ -158,19 +162,19 @@ const ContactForm = (props: IContactForm) => {
                     error != "" ?
                     <h2 className='text-red-600 font-bold text-lg border-2 border-red-600 mb-4 rounded-md'>{error}</h2>: ''
                 }                
-                <h1 className='text-lg md:text-2xl mb-4 font-bold uppercase text-gray-900'>Envie-me uma mensagem!!</h1>
+                <h1 className='text-lg md:text-2xl mb-4 font-bold uppercase text-gray-900'>{props?.language?.footer?.form?.title}</h1>
 
-                <input type="text" name='from_name' placeholder='Name' className='my-4 p-4 rounded-md shadow-md outline-gray-900'/>
-                <input type="email" name='from_email' placeholder='Email' className='my-4 p-4 rounded-md shadow-md outline-gray-900'/>
+                <input type="text" name='from_name' placeholder={props?.language?.footer?.form?.name} className='my-4 p-4 rounded-md shadow-md outline-gray-900'/>
+                <input type="email" name='from_email' placeholder={props?.language?.footer?.form?.email} className='my-4 p-4 rounded-md shadow-md outline-gray-900'/>
 
-                <textarea placeholder='Mensagem' name='message' rows={5} cols={40} className='my-4 p-4 rounded-md shadow-md outline-gray-900 resize-none'></textarea>
+                <textarea placeholder={props?.language?.footer?.form?.message} name='message' rows={5} cols={40} className='my-4 p-4 rounded-md shadow-md outline-gray-900 resize-none'></textarea>
 
                 <div className='flex items-center mb-4'>
-                    <label className='text-gray-900 font-normal text-sm'>Ao efetuar o envio assumo que li e concordo com a <span onClick={() => props.openPolitica(true)} className='text-blue-900 cursor-pointer hover:border-b-[1px] border-blue-900'>Política de Privacidade</span></label>
+                    <label className='text-gray-900 font-normal text-sm'>{props?.language?.footer?.form?.privacyPoliticText} <span onClick={() => props.openPolitica(true)} className='text-blue-900 cursor-pointer hover:border-b-[1px] border-blue-900'>{props?.language?.footer?.form?.privacyPoliticWord}</span></label>
                     <input defaultChecked={false} type="checkbox" className='ml-2' onChange={(e) => setRGPD(!rgpd)} />
                 </div>
 
-                <button type='submit' disabled={rgpd == false ? true : false} className='bg-gray-900 p-4 text-base text-white uppercase font-bold rounded-md shadow-md disabled:bg-gray-500'>Enviar</button>
+                <button type='submit' disabled={rgpd == false ? true : false} className='bg-gray-900 p-4 text-base text-white uppercase font-bold rounded-md shadow-md disabled:bg-gray-500'>{props?.language?.footer?.form.button}</button>
             </motion.form>
         </>
     )
@@ -179,6 +183,7 @@ const ContactForm = (props: IContactForm) => {
 
 interface IPoliticaPrivacidade {
 
+    language: ILanguage,
     onClose: (value: boolean) => void;
 }
 
@@ -204,8 +209,8 @@ const PoliticaPrivacidade = (props: IPoliticaPrivacidade) => {
             <div className='relative flex items-start md:items-start justify-center w-full h-full overflow-y-scroll'>
 
                 <div className='z-10 relative block w-full max-w-[500px] bg-gray-100 p-4 rounded-md shadow-md shadow-gray-500 left-0 top-0 bottom-0 right-0 m-4 mt-4 '>
-                    <h1 className='text-lg font-bold text-blue-900 border-b-[1.5px] border-gray-500 pb-4 mb-4 flex items-center justify-between'>
-                        POLÍTICA DE PRIVACIDADE
+                    <h1 className='text-lg font-bold text-blue-900 border-b-[1.5px] border-gray-500 pb-4 mb-4 flex items-center justify-between uppercase'>
+                        {props?.language?.privacyPolity?.title}
                         <div onClick={() => props.onClose(false)} className="cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="gray" className="w-6 h-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -213,15 +218,13 @@ const PoliticaPrivacidade = (props: IPoliticaPrivacidade) => {
                         </div>
                     </h1>
                     <p className='text-gray-900 text-sm md:text-base font-light font-sans'>
-                        Esta declaração de garantia de privacidade de dados aplica-se especifica e exclusivamente ao serviço do site 'davidxavier.website'.<br/><br/>
-
-                        Quando pedimos o seu nome, email, entre outros, temos como objetivo manter um relacionamento mais próximo com os nossos utilizadores. Apos o seu consentimento, passamos a ter possibilidade de o contactar de forma a responder ás suas necessidades e/ou pedido efetuado após usar os nossos serviços.
+                        {props?.language?.privacyPolity?.row1}
                         <br/><br/>
-                        'davidxavier.website' respeita a privacidade de todos os seus utilizadores e garante que as informações fornecidas pelos utilizadores não serão utilizadas em nenhuma lista com fins promocionais, via correio eletrónico, nem serão divulgados a qualquer outra organização ou empresa. 'davidxavier.website' compromete-se ao uso de uma tecnologia suficientemente eficaz para que a sua experiência online seja de dia para dia mais segura e os seus relacionamentos na Web cada vez mais reforçados, recolhendo e tratando os dados de forma segura, impedindo a sua perda ou manipulação.
+                        {props?.language?.privacyPolity?.row2}
                         <br/><br/>
-                        Os dados recolhidos pelo 'davidxavier.website' serão utilizados de acordo com o cumprimento da legislação aplicável sobre proteção de dados pessoais – Lei 58/2019 de 8 de agosto, Lei de Proteção de Dados – de forma a que fique assegurada a confidencialidade e segurança dos dados pessoais fornecidos. Os mesmos destinam-se a ser usados para comunicação com os utilizadores, resposta a pedidos de informação.
+                        {props?.language?.privacyPolity?.row3}
                         <br/><br/>
-                        Sobre qualquer questão que tenha relativa a este compromisso, não hesite em contactar-nos.
+                        {props?.language?.privacyPolity?.row4}
                     </p>
                 </div>
 
